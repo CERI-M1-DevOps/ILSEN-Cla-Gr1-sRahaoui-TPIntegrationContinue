@@ -4,15 +4,28 @@ public class ListeSimple {
     private long size;
     Noeud tete;
 
+    /**
+    * Retourne le nombre d'éléments présents dans la liste
+    * @return la taille de la liste
+    */
     public long getSize() {
         return size;
     }
 
+    /**
+    * Ajoute un élément au début de la liste
+    * @param element l'élément à ajouter
+    */
     public void ajout(int element) {
         tete = new Noeud(element, tete);
         size++;
     }
 
+    /**
+    * Modifie le premier evenement d'un élément dans la liste
+    * @param element l'élément à rechercher
+    * @param nouvelleValeur la nouvelle valeur à mettre
+    */
     public void modifiePremier(Object element, Object nouvelleValeur) {
         Noeud courant = tete;
         while (courant != null && courant.getElement() != element)
@@ -43,6 +56,10 @@ public class ListeSimple {
         return sb.toString();
     }
 
+    /**
+    * Supprime la première occurrence d'un élément dans la liste
+    * @param element l'élément à supprimer
+    */
     public void supprimePremier(Object element) {
         if (tete != null) {
             if (tete.getElement() == element) {
@@ -80,6 +97,10 @@ public class ListeSimple {
         } else return null;
     }
 
+    /**
+    * Retourne l'avant-dernier noeud de la liste
+    * @return l'avant-dernier noeud, ou null s'il n'existe pas
+    */
     public Noeud getAvantDernier() {
         if (tete == null || tete.getSuivant() == null)
             return null;
@@ -106,6 +127,11 @@ public class ListeSimple {
         tete = precedent;
     }
 
+    /**
+    * Recherche le noeud qui se trouve juste avant celui donné
+    * @param r le noeud dont on cherche le précédent
+    * @return le noeud précédent
+    */
     public Noeud getPrecedent(Noeud r) {
     // la liste n'est pas vide puisqu'on transmet un Node de la liste et le Node existe obligatoirement
         Noeud precedent = tete;
